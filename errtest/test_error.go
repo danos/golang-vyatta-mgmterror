@@ -206,7 +206,7 @@ func (te *TestError) CliErrorStrings() []string {
 
 	pathSlice := getPathSlice(te.t, te.path, "generic error")
 
-	retStr := []string{fmt.Sprintf("%s", errpath(pathSlice))}
+	retStr := []string{fmt.Sprintf("%s", mgmterror.ErrPath(pathSlice))}
 	return append(retStr, te.cliMsgs...)
 }
 
@@ -222,7 +222,7 @@ func (te *TestError) RpcErrorStrings() []string {
 
 	pathSlice := getPathSlice(te.t, te.path, "rpc error")
 
-	retStr := []string{fmt.Sprintf("%s", errpath(pathSlice))}
+	retStr := []string{fmt.Sprintf("%s", mgmterror.ErrPath(pathSlice))}
 	return append(retStr, te.rpcMsgs...)
 }
 
@@ -243,18 +243,18 @@ func (te *TestError) SetCliErrorStrings() []string {
 	pathSlice := getPathSlice(te.t, te.path, "generic error")
 	if te.setMsg == noMsgPrinted {
 		return []string{fmt.Sprintf("%s %s %s",
-			configPathStr, errpath(pathSlice), isNotValidStr),
+			configPathStr, mgmterror.ErrPath(pathSlice), isNotValidStr),
 		}
 	}
 	if te.setSuffix == "" {
 		return []string{fmt.Sprintf("%s %s %s",
-			configPathStr, errpath(pathSlice), isNotValidStr),
+			configPathStr, mgmterror.ErrPath(pathSlice), isNotValidStr),
 			te.setMsg,
 		}
 	}
 
 	return []string{fmt.Sprintf("%s %s %s",
-		configPathStr, errpath(pathSlice), te.setSuffix),
+		configPathStr, mgmterror.ErrPath(pathSlice), te.setSuffix),
 		te.setMsg,
 	}
 }
