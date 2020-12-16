@@ -1,3 +1,10 @@
+golang-github-danos-mgmterror (1:1.5.1) unstable; urgency=medium
+
+  * Combine and export errpath functions to ErrPath
+  * Add InvalidPrefixError
+
+ -- William Ivory <william.ivory@intl.att.com>  Wed, 16 Dec 2020 12:08:51 +0000
+
 golang-github-danos-mgmterror (1:1.5) unstable; urgency=medium
 
   * Add AppTag() to Formattable interface
